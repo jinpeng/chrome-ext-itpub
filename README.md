@@ -22,7 +22,7 @@ Change Log
 
 Credits
 ================
-This extension is and always will be free, open-source, and without ads or tracking algorithms of any kind. You can find the source code here: https://github.com/jinpeng/chrome-extensions/itpub-download
+This extension is and always will be free, open-source, and without ads or tracking algorithms of any kind. You can find the source code here: https://github.com/jinpeng/chrome-ext-itpub
 
 Based on the great Chrome Extension "Image Downloader" by Vladimir Sabev at
 https://github.com/vdsabev/image-downloader
