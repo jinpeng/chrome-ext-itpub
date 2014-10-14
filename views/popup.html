@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Itpub Download</title>
+
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" />
+    <link rel="stylesheet" href="/lib/jquery.nouislider/jquery.nouislider.css" type="text/css" />
+    <style>
+      body
+      {
+        margin: 0;
+        padding: 0 2px 0 0; /* compensate for browser defaults */
+        min-width: 500px;
+        min-height: 150px;
+        box-sizing: border-box;
+      }
+
+      .grid
+      {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .grid td { padding: 0 2px; }
+      .grid td input[type="text"],
+      .grid td input[type="button"],
+      .grid td input[type="number"],
+      .grid td select { width: 100%; }
+
+      #filters_container
+      {
+        position: fixed;
+        top: 0px;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 2px 2px 2px 0; /* compensate for browser defaults */
+        background: #fff;
+        border-bottom: 1px solid #ccc;
+      }
+
+      #filters_container input[type="text"],
+      #filters_container input[type="button"],
+      #filters_container input[type="number"],
+      #filters_container select
+      {
+        height: 26px;
+        margin-bottom: 4px;
+      }
+
+      #images_table { margin-top: 2px; }
+      #images_table img { cursor: pointer; }
+
+      .download_image_button
+      {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+
+        background-size: 24px;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .download_image_button { background-image: url("/images/download.png"); }
+    </style>
+
+    <script src="/lib/zepto.js"></script>
+    <script src="/lib/jquery.nouislider/jquery.nouislider.js"></script>
+    <script src="/lib/jss.js"></script>
+
+    <script src="/scripts/background.js"></script>
+    <script src="/scripts/popup.js"></script>
+  </head>
+
+  <body>
+    <div id="filters_container">
+      <table id="filter_inputs_container" class="grid">
+        <colgroup>
+          <col>
+          <col style="width: 100px;">
+        </colgroup>
+        <tr>
+          <td>
+            <input type="text" id="folder_name_textbox" placeholder="SAVE TO SUBFOLDER" title="Set the name of the subfolder you want to download the images to." />
+          </td>
+          <td>
+            <input type="button" id="download_button" class="accent" value="DOWNLOAD" disabled="true" />
+          </td>
+        </tr>
+        <tr id="image_url_filter">
+          <td>
+            <input type="text" id="filter_textbox" placeholder="FILTER BY TITLE" title="Filter by parts of the TITLE or regular expressions." />
+          </td>
+          <td>
+            <select id="filter_url_mode_input">
+              <option value="normal" title="A plain text search">Normal</option>
+              <option value="wildcard" title="You can also use these special symbols:
+    * → zero or more characters
+    ? → zero or one character
+    + → one or more characters">Wildcard</option>
+              <option value="regex" title="Regular expressions (advanced):
+    [abc] → A single character of: a, b or c
+    [^abc] → Any single character except: a, b, or c
+    [a-z] → Any single character in the range a-z
+    [a-zA-Z] → Any single character in the range a-z or A-Z
+    ^ → Start of line
+    $ → End of line
+    \A → Start of string
+    \z → End of string
+    . → Any single character
+    \s → Any whitespace character
+    \S → Any non-whitespace character
+    \d → Any digit
+    \D → Any non-digit
+    \w → Any word character (letter, number, underscore)
+    \W → Any non-word character
+    \b → Any word boundary character
+    (...) → Capture everything enclosed
+    (a|b) → a or b
+    a? → Zero or one of a
+    a* → Zero or more of a
+    a+ → One or more of a
+    a{3} → Exactly 3 of a
+    a{3,} → 3 or more of a
+    a{3,6} → Between 3 and 6 of a">Regex</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+
+    <table id="images_table" class="grid"></table>
+  </body>
+</html>
